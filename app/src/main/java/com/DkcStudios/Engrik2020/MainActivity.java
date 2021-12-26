@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Toast;
 
@@ -57,10 +58,9 @@ public class MainActivity extends AppCompatActivity implements RecyclerView_Adap
     @Override
     public void CallBack(int position) {
 
-        Toast.makeText(this,String.valueOf(position),Toast.LENGTH_LONG).show();
-
-
-        System.out.println(position);
+     Intent intent = new Intent(MainActivity.this,QuizActivity.class);
+     intent.putExtra("position",position);
+     startActivity(intent);
 
     }
 }
