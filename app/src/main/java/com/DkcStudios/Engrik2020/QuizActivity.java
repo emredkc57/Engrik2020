@@ -8,24 +8,31 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.DkcStudios.Engrik2020.wordanswer.LetterClass;
+import com.DkcStudios.Engrik2020.wordanswer.WordClass;
+
 public class QuizActivity extends AppCompatActivity {
 
-    TextView wordText;
-    EditText answerText;
+    public static TextView wordText;
+    public EditText answerText;
     Button btn;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_quiz);
 
-
         wordText = findViewById(R.id.textView2);
         answerText = findViewById(R.id.editTextTextPersonName);
 
         btn = findViewById(R.id.button);
 
+
+
         initializeActivity();
+
 
     }
 
@@ -34,10 +41,12 @@ public class QuizActivity extends AppCompatActivity {
 
         Intent intent = this.getIntent();
 
-        int receivedPosition = intent.getIntExtra("position",0);
+        int receivedPos = intent.getIntExtra("position",0);
+
+        WordClass wordClass = new WordClass();
 
 
-        wordText.setText(MainActivity.letters[receivedPosition]);
+        wordClass.determineWhichLettersChosen(LetterClass.letters,receivedPos);
 
 
 

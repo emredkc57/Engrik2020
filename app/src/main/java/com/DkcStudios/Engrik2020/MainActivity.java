@@ -9,14 +9,15 @@ import android.os.Bundle;
 import android.widget.Toast;
 
 import com.DkcStudios.Engrik2020.adapter.RecyclerView_Adapter;
+import com.DkcStudios.Engrik2020.wordanswer.LetterClass;
+import com.DkcStudios.Engrik2020.wordanswer.WordClass;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 
 public class MainActivity extends AppCompatActivity implements RecyclerView_Adapter.MyListener {
 
-    static String[] letters = {"A letter","B Letter","C Letter","D Letter","E Letter"
-    ,"F Letter", "G Letter"};
+
 
     ArrayList<String> letterList;
 
@@ -43,7 +44,7 @@ public class MainActivity extends AppCompatActivity implements RecyclerView_Adap
         recyclerView = findViewById(R.id.recyclerView);
 
 
-        letterList = new ArrayList<>(Arrays.asList(letters));
+        letterList = new ArrayList<>(Arrays.asList(LetterClass.letters));
 
 
         RecyclerView_Adapter recyclerViewAdapter = new RecyclerView_Adapter(letterList,this,this);
